@@ -28,6 +28,7 @@
                         
                         <form method="post" action="https://lamborgini-auth.onrender.com/login/">
                             {% csrf_token %}
+                            <input type="hidden" name="next" value="https://lamborgini-full.onrender.com/">
                             <div class="form-group">
                                 <label>Логин</label>
                                 <input type="text" name="username" class="form-control" required>
