@@ -26,7 +26,7 @@
                             {% endfor %}
                         {% endif %}
                         
-                        <form method="post">
+                        <form method="post" action="https://lamborgini-auth.onrender.com/register-user/">
                             {% csrf_token %}
                             
                             <div class="form-group">
@@ -60,10 +60,10 @@
                         </form>
                         <hr>
                         <p class="text-center">
-                            Уже есть аккаунт? <a href="{% url 'login' %}">Войти</a>
+                            Уже есть аккаунт? <a href="https://lamborgini-auth.onrender.com/login/">Войти</a>
                         </p>
                         <p class="text-center">
-                            <a href="{% url 'index' %}">← На главную</a>
+                            <a href="https://lamborgini-full.onrender.com/">← На главную</a>
                         </p>
                     </div>
                 </div>
