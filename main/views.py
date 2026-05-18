@@ -14,10 +14,10 @@ import os
 
 SERVICE_ROLE = os.environ.get('SERVICE_ROLE', 'full')
 
-# URL сервисов из переменных окружения (с значениями по умолчанию)
-FULL_URL = os.environ.get('FULL_SERVICE_URL', 'https://lamborgini-full.onrender.com')
-AUTH_URL = os.environ.get('AUTH_SERVICE_URL', 'https://lamborgini-auth.onrender.com')
-COMMENTS_URL = os.environ.get('COMMENTS_SERVICE_URL', 'https://lamborgini-comments.onrender.com')
+# URL сервисов (напрямую задаём, чтобы точно работало)
+FULL_URL = 'https://lamborgini-full.onrender.com'
+AUTH_URL = 'https://lamborgini-auth.onrender.com'
+COMMENTS_URL = 'https://lamborgini-comments.onrender.com'
 
 def index(request):
     """Главная страница"""
