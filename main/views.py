@@ -14,16 +14,29 @@ import os
 
 SERVICE_ROLE = os.environ.get('SERVICE_ROLE', 'full')
 
-# URL главного сервиса (Render)
-FULL_SERVICE_URL = 'https://lamborgini-full.onrender.com'
+# URL сервисов из переменных окружения (с значениями по умолчанию)
+FULL_URL = os.environ.get('FULL_SERVICE_URL', 'https://lamborgini-full.onrender.com')
+AUTH_URL = os.environ.get('AUTH_SERVICE_URL', 'https://lamborgini-auth.onrender.com')
+COMMENTS_URL = os.environ.get('COMMENTS_SERVICE_URL', 'https://lamborgini-comments.onrender.com')
 
 def index(request):
-    return render(request, 'main/index.html')
+    """Главная страница"""
+    return render(request, 'main/index.html', {
+        'FULL_URL': FULL_URL,
+        'AUTH_URL': AUTH_URL,
+        'COMMENTS_URL': COMMENTS_URL,
+    })
 
 def lastyear(request):
-    return render(request, 'main/lastyear.html')
+    """Страница 'Гранд-финал 2022'"""
+    return render(request, 'main/lastyear.html', {
+        'FULL_URL': FULL_URL,
+        'AUTH_URL': AUTH_URL,
+        'COMMENTS_URL': COMMENTS_URL,
+    })
 
 def register_user(request):
+    """Регистрация нового пользователя"""
     if request.method == 'POST':
         username = request.POST.get('username')
         email = request.POST.get('email')
@@ -67,15 +80,17 @@ def register_user(request):
         
         messages.success(request, f'✅ Пользователь {username} успешно зарегистрирован!')
         
-        # Редирект на главный сайт (Render)
-        if SERVICE_ROLE == 'auth':
-            return redirect(f'{FULL_SERVICE_URL}/')
-        else:
-            return redirect('login')
+        # Редирект на главный сайт (полный URL)
+        return redirect(f'{FULL_URL}/')
     
-    return render(request, 'main/register_user.html')
+    return render(request, 'main/register_user.html', {
+        'FULL_URL': FULL_URL,
+        'AUTH_URL': AUTH_URL,
+        'COMMENTS_URL': COMMENTS_URL,
+    })
 
 def login_user(request):
+    """Вход пользователя"""
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -85,31 +100,31 @@ def login_user(request):
         if user is not None:
             login(request, user)
             messages.success(request, f'✅ Добро пожаловать, {user.username}!')
-            
-            # Редирект на главный сайт (Render)
-            if SERVICE_ROLE == 'auth':
-                return redirect(f'{FULL_SERVICE_URL}/')
-            else:
-                return redirect('index')
+            # Редирект на главный сайт (полный URL)
+            return redirect(f'{FULL_URL}/')
         else:
             messages.error(request, '❌ Неверный логин или пароль!')
             return redirect('login')
     
-    return render(request, 'main/login.html')
+    return render(request, 'main/login.html', {
+        'FULL_URL': FULL_URL,
+        'AUTH_URL': AUTH_URL,
+        'COMMENTS_URL': COMMENTS_URL,
+    })
 
 def logout_user(request):
+    """Выход пользователя"""
     logout(request)
     messages.success(request, 'Вы вышли из системы.')
-    
-    # Редирект на главный сайт (Render)
-    if SERVICE_ROLE == 'auth':
-        return redirect(f'{FULL_SERVICE_URL}/')
-    else:
-        return redirect('index')
+    return redirect(f'{FULL_URL}/')
 
 def comments_page(request):
     """Страница с комментариями"""
-    return render(request, 'main/comments.html')
+    return render(request, 'main/comments.html', {
+        'FULL_URL': FULL_URL,
+        'AUTH_URL': AUTH_URL,
+        'COMMENTS_URL': COMMENTS_URL,
+    })
 
 @login_required
 def comment_list(request):
@@ -164,6 +179,7 @@ def comment_add(request):
 @require_http_methods(['DELETE'])
 @staff_member_required
 def comment_delete(request, comment_id):
+    """Удаление комментария (только для администратора)"""
     try:
         comment = Comment.objects.get(id=comment_id)
         comment.delete()
