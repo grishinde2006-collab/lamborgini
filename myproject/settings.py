@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 
+
 # ========== НАСТРОЙКА МИКРОСЕРВИСОВ ==========
 SERVICE_ROLE = os.environ.get('SERVICE_ROLE', 'full')
 # =============================================
@@ -35,6 +36,7 @@ BASE_APPS = [
     'django.contrib.staticfiles',
 ]
 
+# Приложение main добавляем один раз в любом случае
 MAIN_APP = 'main'
 
 if SERVICE_ROLE == 'auth':
@@ -44,6 +46,7 @@ elif SERVICE_ROLE == 'comments':
 elif SERVICE_ROLE == 'tickets':
     INSTALLED_APPS = BASE_APPS + [MAIN_APP]
 else:
+    # В режиме full — тоже один раз
     INSTALLED_APPS = BASE_APPS + [MAIN_APP]
 # ================================================================
 
@@ -106,9 +109,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 # Настройки для авторизации
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/' 
