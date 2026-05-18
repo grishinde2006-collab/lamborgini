@@ -37,29 +37,29 @@
           <img src="{% static 'main/img/logo.svg' %}" alt="logo" class="logo-img"> 
         </a>
 
-        <ul class="menu-list menu-right">
-          {% if user.is_authenticated %}
-            <li class="menu-item">
-              <span style="color: #ff6b00;">{{ user.username }}</span>
-            </li>
-            <li class="menu-item">
-              <a href="https://lamborgini-auth.onrender.com/logout/" class="menu-link">Выход</a>   
-            </li>
-          {% else %}
-            <li class="menu-item">
-              <a href="https://lamborgini-auth.onrender.com/register-user/" class="menu-link">Регистрация</a>
-            </li>
-            <li class="menu-item">
-              <a href="https://lamborgini-auth.onrender.com/login/" class="menu-link">Вход</a>
-            </li>
-          {% endif %}
-          <li class="menu-item">
-            <a href="https://lamborgini-full.onrender.com/lastyear/" class="menu-link">Гранд-финал 2022</a>
-          </li>
-          <li class="menu-item">
-            <a href="https://lamborgini-comments.onrender.com/comments/" class="menu-link">Комментарии</a>
-          </li>
-        </ul>
+       <ul class="menu-list menu-right">
+    {% if user.is_authenticated %}
+        <li class="menu-item">
+            <span style="color: #ff6b00;">{{ user.username }}</span>
+        </li>
+        <li class="menu-item">
+            <a href="{{ AUTH_URL }}/logout/" class="menu-link">Выход</a>   
+        </li>
+    {% else %}
+        <li class="menu-item">
+            <a href="{{ AUTH_URL }}/register-user/" class="menu-link">Регистрация</a>
+        </li>
+        <li class="menu-item">
+            <a href="{{ AUTH_URL }}/login/" class="menu-link">Вход</a>
+        </li>
+    {% endif %}
+    <li class="menu-item">
+        <a href="{{ FULL_URL }}/lastyear/" class="menu-link">Гранд-финал 2022</a>
+    </li>
+    <li class="menu-item">
+        <a href="{{ COMMENTS_URL }}/comments/" class="menu-link">Комментарии</a>
+    </li>
+</ul>
       </nav>
     </div>
   </header>
