@@ -21,7 +21,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Открываем порт
-EXPOSE 8000
+EXPOSE 8001
 
 # Команда запуска 
-CMD python manage.py migrate && python manage.py runserver 0.0.0.0:$PORT
+CMD python manage.py migrate && python manage.py runserver 0.0.0.0:8001
