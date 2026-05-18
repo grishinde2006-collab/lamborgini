@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-hkr($^9+^q(3d%ttmxbdr6p1@&boad9eeb*q+wr&)6_gk=ky77
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.14', '127.0.0.1', 'localhost', '*']
+ALLOWED_HOSTS = ['*']
 
 # ========== INSTALLED_APPS с поддержкой микросервисов ==========
 BASE_APPS = [
