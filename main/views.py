@@ -14,6 +14,9 @@ import os
 
 SERVICE_ROLE = os.environ.get('SERVICE_ROLE', 'full')
 
+# URL главного сервиса (Render)
+FULL_SERVICE_URL = 'https://lamborgini-full.onrender.com'
+
 def index(request):
     return render(request, 'main/index.html')
 
@@ -64,9 +67,9 @@ def register_user(request):
         
         messages.success(request, f'✅ Пользователь {username} успешно зарегистрирован!')
         
-        # Если это auth сервис (порт 8001) — редирект на главный сайт
+        # Редирект на главный сайт (Render)
         if SERVICE_ROLE == 'auth':
-            return redirect('http://localhost:8000/')
+            return redirect(f'{FULL_SERVICE_URL}/')
         else:
             return redirect('login')
     
@@ -83,9 +86,9 @@ def login_user(request):
             login(request, user)
             messages.success(request, f'✅ Добро пожаловать, {user.username}!')
             
-            # Если это auth сервис (порт 8001) — редирект на главный сайт
+            # Редирект на главный сайт (Render)
             if SERVICE_ROLE == 'auth':
-                return redirect('http://localhost:8000/')
+                return redirect(f'{FULL_SERVICE_URL}/')
             else:
                 return redirect('index')
         else:
@@ -98,9 +101,9 @@ def logout_user(request):
     logout(request)
     messages.success(request, 'Вы вышли из системы.')
     
-    # Если это auth сервис (порт 8001) — редирект на главный сайт
+    # Редирект на главный сайт (Render)
     if SERVICE_ROLE == 'auth':
-        return redirect('http://localhost:8000/')
+        return redirect(f'{FULL_SERVICE_URL}/')
     else:
         return redirect('index')
 
