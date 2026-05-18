@@ -1,6 +1,5 @@
-import os
+\import os
 from pathlib import Path
-import dj_database_url
 
 # ========== НАСТРОЙКА МИКРОСЕРВИСОВ ==========
 SERVICE_ROLE = os.environ.get('SERVICE_ROLE', 'full')
@@ -12,11 +11,11 @@ Django settings for myproject project.
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-hkr($^9+^q(3d%ttmxbdr6p1@&boad9eeb*q+wr&)6_gk=ky77')
+SECRET_KEY = 'django-insecure-hkr($^9+^q(3d%ttmxbdr6p1@&boad9eeb*q+wr&)6_gk=ky77'
 
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+DEBUG = True
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split(',')
+ALLOWED_HOSTS = ['*']
 
 # ========== INSTALLED_APPS ==========
 BASE_APPS = [
@@ -69,15 +68,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
-# ========== БАЗА ДАННЫХ POSTGRESQL ==========
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL'),
-        conn_max_age=600,
-        conn_health_checks=True,
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
-# ============================================
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -101,7 +97,6 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
