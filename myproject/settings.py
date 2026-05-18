@@ -19,14 +19,11 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-hkr($^9+^q(3d%ttmxbdr6p1@&boad9eeb*q+wr&)6_gk=ky77')
+SECRET_KEY = 'django-insecure-hkr($^9+^q(3d%ttmxbdr6p1@&boad9eeb*q+wr&)6_gk=ky77'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+DEBUG = True
 
-# Разрешенные хосты
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split(',')
+ALLOWED_HOSTS = ['*']
 
 # ========== INSTALLED_APPS с поддержкой микросервисов ==========
 BASE_APPS = [
@@ -38,7 +35,6 @@ BASE_APPS = [
     'django.contrib.staticfiles',
 ]
 
-# Приложение main добавляем один раз в любом случае
 MAIN_APP = 'main'
 
 if SERVICE_ROLE == 'auth':
@@ -48,7 +44,6 @@ elif SERVICE_ROLE == 'comments':
 elif SERVICE_ROLE == 'tickets':
     INSTALLED_APPS = BASE_APPS + [MAIN_APP]
 else:
-    # В режиме full — тоже один раз
     INSTALLED_APPS = BASE_APPS + [MAIN_APP]
 # ================================================================
 
@@ -81,7 +76,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
-# База данных (SQLite)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -89,7 +83,6 @@ DATABASES = {
     }
 }
 
-# Валидация паролей
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -105,36 +98,17 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Интернационализация
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# Статические файлы
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# ========== НАСТРОЙКИ АВТОРИЗАЦИИ ДЛЯ МИКРОСЕРВИСОВ ==========
-# URL для входа
+# Настройки для авторизации
 LOGIN_URL = '/login/'
-
-# Редирект после входа (полный URL для auth сервиса)
-if SERVICE_ROLE == 'auth':
-    LOGIN_REDIRECT_URL = os.environ.get('FULL_SERVICE_URL', 'https://lamborgini-full.onrender.com/')
-    LOGOUT_REDIRECT_URL = os.environ.get('FULL_SERVICE_URL', 'https://lamborgini-full.onrender.com/')
-else:
-    LOGIN_REDIRECT_URL = '/'
-    LOGOUT_REDIRECT_URL = '/'
-
-# Разрешенные хосты для редиректов (для auth сервиса)
-SECURE_REFERRER_POLICY = 'strict-origin-when-cross-origin'
-
-# URL сервисов (для передачи в шаблоны)
-FULL_SERVICE_URL = os.environ.get('FULL_SERVICE_URL', 'https://lamborgini-full.onrender.com')
-AUTH_SERVICE_URL = os.environ.get('AUTH_SERVICE_URL', 'https://lamborgini-auth.onrender.com')
-COMMENTS_SERVICE_URL = os.environ.get('COMMENTS_SERVICE_URL', 'https://lamborgini-comments.onrender.com')
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
