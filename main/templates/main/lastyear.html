@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Гранд-финал 2022 - Lamborghini Super Trofeo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'main/css/reset.css' %}">
+  <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="big-container">
+      <nav class="nav">
+        <ul class="menu-list menu-left">
+  <li class="menu-item">
+    <a href="http://localhost:8000/#race-info" class="menu-link">О гонке</a>
+  </li>
+  <li class="menu-item">
+    <a href="http://localhost:8000/#Komand_cintent" class="menu-link">Информация</a>
+  </li>
+  <li class="menu-item">
+    <a href="http://localhost:8000/#track-lin" class="menu-link">Трек</a>
+  </li>
+  <li class="menu-item">
+    <a href="http://localhost:8000/" class="menu-link">Главная страница</a>
+  </li>
+</ul>
+
+<a href="#" class="logo">
+  <img src="{% static 'main/img/logo.svg' %}" alt="logo" class="logo-img"> 
+</a>
+
+<ul class="menu-list menu-right">
+  {% if user.is_authenticated %}
+    <li class="menu-item">
+      <span style="color: #ff6b00;">{{ user.username }}</span>
+    </li>
+    <li class="menu-item">
+      <a href="{% url 'logout' %}" class="menu-link">Выход</a>   
+    </li>
+  {% else %}
+    <li class="menu-item">
+      <a href="http://localhost:8001/register-user/" class="menu-link">Регистрация</a>
+    </li>
+    <li class="menu-item">
+      <a href="http://localhost:8001/login/" class="menu-link">Вход</a>
+    </li>
+  {% endif %}
+  <li class="menu-item">
+    <a href="http://localhost:8000/lastyear/" class="menu-link">Гранд-финал 2022</a>
+  </li>
+  <li class="menu-item">
+    <a href="http://localhost:8002/comments/" class="menu-link">Комментарии</a>
+  </li>
+</ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="promo">
+      <div class="big-container">
+        <div class="promo_inner">
+          <h1 class="title">
+            LAMBORGHINI SUPER TROFEO
+          </h1>
+          <h2 class="subtitle">
+            Гранд-финал 2022
+          </h2>
+          <iframe src="https://rutube.ru/play/embed/1d50d01d0470c717c3960978644aee66" allow="clipboard-write; autoplay" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer class="footer" id="footer_low">
+    <div class="footer-container">
+      <div class="footer-block">
+        <h3 class="footer-title">Контакты</h3>
+        <div class="footer-contacts">
+          <span><a href="mailto:info@autodromodoalgarve.com">info@autodromodoalgarve.com</a></span>
+          <span><a href="tel:+(351)282405600">+(351) 282 405 600</a></span>
+          <span><a href="tel:+(351)282405697">+(351) 282 405 697</a></span>
+        </div>
+      </div>
+      <div class="footer-block">
+        <h3 class="footer-title">Адрес</h3>
+        <div class="footer-address">
+          <span>Sitio do Escampadinho, Mexilhoeira Grande, 8500-148 Portimao, Portugal</span>
+          <span>3-5 ноября 2026</span>
+          <span class="footer-copyright">© 2026 Все права защищены</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

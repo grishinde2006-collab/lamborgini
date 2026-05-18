@@ -1,0 +1,203 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Главная - Lamborghini Super Trofeo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'main/css/reset.css' %}">
+  <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="big-container">
+      <nav class="nav">
+        <ul class="menu-list menu-left">
+  <li class="menu-item">
+    <a href="http://localhost:8000/#race-info" class="menu-link">О гонке</a>
+  </li>
+  <li class="menu-item">
+    <a href="http://localhost:8000/#Komand_cintent" class="menu-link">Информация</a>
+  </li>
+  <li class="menu-item">
+    <a href="http://localhost:8000/#track-lin" class="menu-link">Трек</a>
+  </li>
+  <li class="menu-item">
+    <a href="http://localhost:8000/" class="menu-link">Главная страница</a>
+  </li>
+</ul>
+
+<a href="#" class="logo">
+  <img src="{% static 'main/img/logo.svg' %}" alt="logo" class="logo-img"> 
+</a>
+
+<ul class="menu-list menu-right">
+  {% if user.is_authenticated %}
+    <li class="menu-item">
+      <span style="color: #ff6b00;">{{ user.username }}</span>
+    </li>
+    <li class="menu-item">
+      <a href="{% url 'logout' %}" class="menu-link">Выход</a>   
+    </li>
+  {% else %}
+    <li class="menu-item">
+      <a href="http://localhost:8001/register-user/" class="menu-link">Регистрация</a>
+    </li>
+    <li class="menu-item">
+      <a href="http://localhost:8001/login/" class="menu-link">Вход</a>
+    </li>
+  {% endif %}
+  <li class="menu-item">
+    <a href="http://localhost:8000/lastyear/" class="menu-link">Гранд-финал 2022</a>
+  </li>
+  <li class="menu-item">
+    <a href="http://localhost:8002/comments/" class="menu-link">Комментарии</a>
+  </li>
+</ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="promo">
+      <div class="big-container">
+        <div class="promo_inner">
+          <h1 class="title">
+            LAMBORGHINI SUPER TROFEO
+          </h1>
+          <h2 class="subtitle">
+            Гранд-финал 2026
+            <span> 3-6 ноября </span>
+          </h2>
+          <p class="promo_text">
+            автодром Портимао, Португалия
+          </p>
+          <a href="#race-info" class="promo_arrow">
+            <img src="{% static 'main/img/arrow.svg' %}" alt="">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="info" id="race-info">
+      <script src="{% static 'main/js/main.js' %}"></script>
+      <div class="container">
+        <div class="info_part info_part-first">
+          <h3 class="info_title">СУПЕР ТРОФЕО МИРОВОЙ ФИНАЛ</h3>
+          <div class="info_part-textbox">
+            <p class="info_text">
+              Мировой финал Lamborghini завершает каждый сезон Super Trofeo с 2013 года. Каждый год гонщики всех континентальных чемпионатов отправляются на разные трассы и принимают участие в двух 50-минутных спринтерских гонках, где определяется победитель в общем зачете. как чемпион мира Lamborghini. Мировой финал Lamborghini — это не только крупнейший гоночный уик-энд года, но и настоящий фестиваль автоспорта, который привлекает поклонников со всего мира.
+            </p>
+            <b class="info_text">
+              Парад владельцев, превью и развлечения в паддоке для болельщиков — это лишь некоторые из мероприятий, организованных в рамках мероприятия.
+            </b>
+          </div>
+          <img class="info_part-img" src="{% static 'main/img/info-1.jpg' %}" alt="">
+        </div> 
+        
+        <div class="info_part info_part-second" id="Komand_cintent">
+          <div class="info_content">
+            <h3 class="info_title">
+              КОМАНДЫ СУПЕР ТРОФЕО
+            </h3>
+            <p class="info_text"> 
+              Все автомобили, которые участвуют в чемпионатах Lamborghini Super Trofeo, управляются частными командами, которые используют свой опыт для тонкой настройки их для водителей. Для каждого континентального чемпионата Lamborghini Super Trofeo существуют рейтинги пилотов и команд.
+            </p>
+            <p class="info_text">
+              Пилоты и команды, участвующие в континентальной серии, каждый год соревнуются друг с другом в Гранд Финале Lamborghini, мероприятии, которое завершает спортивный сезон Super Trofeo. Две квалификационные сессии и две гонки определяют чемпионов мира серии. Каждый год Гранд-финал проводится на разных трассах, и в прошлых выпусках он уже затрагивал европейский, азиатский и американский континенты.
+            </p>
+          </div>
+          <img src="{% static 'main/img/info-2.png' %}" alt="" class="info_part-img">
+        </div> 
+        
+        <div class="info_part info_part-table">
+          <div class="info_content">
+            <h3 class="info_title">
+              календарь сезона Super Trofeo Europe 2026 года
+            </h3>
+            <p class="info_text"> 
+              14 в истории серии GT, посвященный автомобилям Lamborghini Huracan Super Trofeo Evo. Шесть этапов, в общей сложности 12 гонок и 600 минут соревнований будут разыграны на некоторых из самых престижных трасс Европы.
+            </p>
+          </div>
+          <table class="info_table">
+            <tr>
+              <td>Этап 1:</td>
+              <td>Имола (Италия)</td>
+              <td>1-3 апреля</td>
+            </tr>
+            <tr>
+              <td>Этап 2:</td>
+              <td>Ле-Кастелле (Франция)</td>
+              <td>3–5 июня</td>
+            </tr>
+            <tr>
+              <td>Этап 3:</td>
+              <td>Мизано (Италия)</td>
+              <td>1–3 июля</td>
+            </tr>
+            <tr>
+              <td>Этап 4:</td>
+              <td>Спа-Франкоршам (Бельгия)</td>
+              <td>29–30 июля</td>
+            </tr>
+            <tr>
+              <td>Этап 5:</td>
+              <td>Барселона (Испания)</td>
+              <td>30 сентября–2 октября</td>
+            </tr>
+            <tr>
+              <td>Этап 6:</td>
+              <td>Портимао (Португалия)</td>
+              <td>3-4 ноября</td>
+            </tr>
+            <tr>
+              <td>Гранд-финал 2026:</td>
+              <td>Портимао (Португалия)</td>
+              <td>5-6 ноября</td>
+            </tr>
+          </table>
+        </div> 
+      </div>   
+    </section>
+    
+    <section class="track" id="track-lin">
+      <div class="container">
+        <h3 class="track_title">
+          ТРЕК ПОРТИМАО
+        </h3>
+        <p class="track_text">
+          Autodromo Internacional do Algarve находится в одноименном регионе на юге Португалии, недалеко от города Портиман. Открытый в октябре 2008 года автогоночный комплекс является одним из самых современных в Европе, раскинувшись на площади около 300 гектаров среди холмов, окружающих португальский город, а длина самой трассы составляет 4684 метра.
+        </p>
+        <img class="track_img" src="{% static 'main/img/track.png' %}" alt="">
+      </div>
+    </section>
+  </main>
+  
+  <footer class="footer" id="footer_low">
+    <div class="footer-container">
+      <div class="footer-block">
+        <h3 class="footer-title">Контакты</h3>
+        <div class="footer-contacts">
+          <span><a href="mailto:info@autodromodoalgarve.com">info@autodromodoalgarve.com</a></span>
+          <span><a href="tel:+(351)282405600">+(351) 282 405 600</a></span>
+          <span><a href="tel:+(351)282405697">+(351) 282 405 697</a></span>
+        </div>
+      </div>
+      <div class="footer-block">
+        <h3 class="footer-title">Адрес</h3>
+        <div class="footer-address">
+          <span>Sitio do Escampadinho, Mexilhoeira Grande, 8500-148 Portimao, Portugal</span>
+          <span>3-5 ноября 2026</span>
+          <span class="footer-copyright">© 2026 Все права защищены</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

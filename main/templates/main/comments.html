@@ -1,0 +1,316 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Комментарии - Lamborghini Super Trofeo</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+      min-height: 100vh;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+    .comments-container {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .comment-card {
+      background: rgba(255,255,255,0.95);
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .comment-title {
+      margin: 0 0 20px 0;
+      color: #ff6b00;
+      font-size: 28px;
+      text-align: center;
+      border-bottom: 2px solid #ff6b00;
+      padding-bottom: 10px;
+    }
+    .btn-home {
+      background: #ff6b00;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 20px;
+      transition: background 0.3s;
+    }
+    .btn-home:hover {
+      background: #e55a00;
+      color: white;
+      text-decoration: none;
+    }
+    .comment-item {
+      border-bottom: 1px solid #eee;
+      padding: 15px 0;
+      position: relative;
+    }
+    .comment-item:last-child {
+      border-bottom: none;
+    }
+    .comment-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .comment-author {
+      font-weight: bold;
+      color: #ff6b00;
+      font-size: 16px;
+    }
+    .comment-date {
+      font-size: 11px;
+      color: #999;
+      margin-left: 10px;
+    }
+    .comment-text {
+      margin-top: 8px;
+      font-size: 14px;
+      line-height: 1.4;
+      color: #333;
+    }
+    .delete-btn {
+      background: none;
+      border: none;
+      color: #e74c3c;
+      cursor: pointer;
+      font-size: 14px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: all 0.3s;
+    }
+    .delete-btn:hover {
+      background: #e74c3c;
+      color: white;
+    }
+    .no-comments {
+      text-align: center;
+      color: #999;
+      padding: 30px;
+    }
+    #comment-text {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      resize: vertical;
+      font-family: inherit;
+      font-size: 14px;
+    }
+    #comment-text:focus {
+      outline: none;
+      border-color: #ff6b00;
+    }
+    .btn-send {
+      background: #ff6b00;
+      border: none;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 8px;
+      margin-top: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .btn-send:hover {
+      background: #e55a00;
+    }
+    .form-error {
+      color: #e74c3c;
+      margin-top: 10px;
+      font-size: 13px;
+    }
+    .comment-count {
+      text-align: right;
+      font-size: 13px;
+      color: #ff6b00;
+      margin-bottom: 15px;
+    }
+    hr {
+      margin: 20px 0;
+      border-color: #eee;
+    }
+  </style>
+</head>
+<body>
+  <div class="comments-container">
+    <div class="comment-card">
+      
+      <div style="text-align: center;">
+        <a href="http://localhost:8000/" class="btn-home">← На главную</a>
+      </div>
+      
+      <h2 class="comment-title">💬 Обсуждение</h2>
+      
+      <div class="comment-count" id="comment-count">0 комментариев</div>
+      
+      <div id="user-data" data-is-staff="{{ user.is_staff|lower }}" style="display: none;"></div>
+      
+      {% if user.is_authenticated %}
+        <textarea id="comment-text" rows="3" placeholder="Напишите ваш комментарий..."></textarea>
+        <button id="submit-comment" class="btn-send">Отправить</button>
+        <div id="form-error" class="form-error"></div>
+      {% else %}
+        <div class="alert alert-info" style="background: #d9edf7; border-color: #bce8f1; color: #31708f; padding: 12px; border-radius: 8px;">
+           <a href="http://localhost:8001/login/">Войдите</a> или <a href="http://localhost:8001/register-user/">зарегистрируйтесь</a>, чтобы оставить комментарий.
+        </div>
+      {% endif %}
+      
+      <hr>
+      
+      <div id="comments-list">
+        <div style="text-align: center; padding: 20px; color: #999;">Загрузка комментариев...</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    function getCookie(name) {
+      let value = null;
+      if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            value = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return value;
+    }
+
+    function escapeHtml(text) {
+      if (!text) return '';
+      return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    }
+
+    function updateCommentCount(count) {
+      let text = '';
+      if (count === 0) text = '0 комментариев';
+      else if (count === 1) text = '1 комментарий';
+      else if (count < 5) text = count + ' комментария';
+      else text = count + ' комментариев';
+      $('#comment-count').text(text);
+    }
+
+    function deleteComment(commentId) {
+      if (!confirm('Удалить этот комментарий?')) return;
+      
+      $.ajax({
+        url: `/api/comments/delete/${commentId}/`,
+        method: 'DELETE',
+        headers: { 'X-CSRFToken': getCookie('csrftoken') },
+        success: function(data) {
+          if (data.success) {
+            loadComments();
+          } else {
+            alert('Ошибка удаления');
+          }
+        },
+        error: function(xhr) {
+          const errorMsg = xhr.responseJSON?.error || 'Ошибка удаления';
+          alert(errorMsg);
+        }
+      });
+    }
+
+    function loadComments() {
+      const isStaff = $('#user-data').data('is-staff') === true || $('#user-data').data('is-staff') === 'true';
+      
+      $.ajax({
+        url: '/api/comments/',
+        method: 'GET',
+        success: function(data) {
+          if (data.comments && data.comments.length > 0) {
+            let html = '';
+            
+            for (let i = 0; i < data.comments.length; i++) {
+              html += `
+                <div class="comment-item" data-id="${data.comments[i].id}">
+                  <div class="comment-header">
+                    <div>
+                      <span class="comment-author">${escapeHtml(data.comments[i].username)}</span>
+                      <span class="comment-date">${data.comments[i].created_at}</span>
+                    </div>
+                    ${isStaff ? `<button class="delete-btn" onclick="deleteComment(${data.comments[i].id})"><i class="fa fa-trash-o"></i> Удалить</button>` : ''}
+                  </div>
+                  <div class="comment-text">${escapeHtml(data.comments[i].text)}</div>
+                </div>
+              `;
+            }
+            $('#comments-list').html(html);
+            updateCommentCount(data.comments.length);
+          } else {
+            $('#comments-list').html('<div class="no-comments">😢 Пока нет комментариев. Будьте первым!</div>');
+            updateCommentCount(0);
+          }
+        },
+        error: function() {
+          $('#comments-list').html('<div class="alert alert-danger" style="padding:15px; background:#f2dede; color:#a94442; border-radius:8px;">❌ Ошибка загрузки комментариев</div>');
+        }
+      });
+    }
+
+    $(document).ready(function() {
+      loadComments();
+      setInterval(loadComments, 5000);
+      
+      $('#submit-comment').click(function() {
+        const text = $('#comment-text').val().trim();
+        
+        if (!text) {
+          $('#form-error').text('Введите текст комментария');
+          return;
+        }
+        
+        if (text.length > 500) {
+          $('#form-error').text('Комментарий слишком длинный (макс. 500 символов)');
+          return;
+        }
+        
+        $('#submit-comment').prop('disabled', true).text('Отправка...');
+        $('#form-error').text('');
+        
+        $.ajax({
+          url: '/api/comments/add/',
+          method: 'POST',
+          contentType: 'application/json',
+          headers: { 'X-CSRFToken': getCookie('csrftoken') },
+          data: JSON.stringify({ text: text }),
+          success: function(data) {
+            if (data.success) {
+              $('#comment-text').val('');
+              loadComments();
+            } else {
+              $('#form-error').text(data.error || 'Ошибка отправки');
+            }
+          },
+          error: function(xhr) {
+            const errorMsg = xhr.responseJSON?.error || 'Ошибка отправки комментария';
+            $('#form-error').text(errorMsg);
+          },
+          complete: function() {
+            $('#submit-comment').prop('disabled', false).text('Отправить');
+          }
+        });
+      });
+      
+      $('#comment-text').keydown(function(e) {
+        if (e.ctrlKey && e.keyCode === 13) {
+          $('#submit-comment').click();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

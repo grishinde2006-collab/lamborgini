@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход - Lamborghini Super Trofeo</title>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body style="background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%); min-height: 100vh;">
+    <div class="container" style="padding-top: 50px;">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-default" style="background: rgba(255,255,255,0.95); border-radius: 10px;">
+                    <div class="panel-heading text-center" style="background: #ff6b00; color: white;">
+                        <h3>Вход в систему</h3>
+                        <p>Lamborghini Super Trofeo</p>
+                    </div>
+                    <div class="panel-body">
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %}">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                        
+                        <form method="post" action="http://localhost:8001/login/">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label>Логин</label>
+                                <input type="text" name="username" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Пароль</label>
+                                <input type="password" name="password" class="form-control" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block" style="background: #ff6b00; border: none;">
+                                Войти
+                            </button>
+                        </form>
+                        <hr>
+                        <p class="text-center">
+                            Нет аккаунта? <a href="http://localhost:8001/register-user/">Зарегистрироваться</a>
+                        </p>
+                        <p class="text-center">
+                            <a href="http://localhost:8000/">← На главную</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

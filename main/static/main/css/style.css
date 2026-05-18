@@ -1,0 +1,507 @@
+
+@font-face {
+    font-family: 'Impact', sans-serif;
+    src: url(../fonts/impact.woff2);
+}
+
+
+
+html{
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
+}
+
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+
+.big-container{
+    max-width: 1220px;
+    padding: 0 10px;
+    margin: 0 auto;
+}
+
+.container{
+    max-width: 920px;
+    padding: 0 10px;
+    margin: 0 auto;
+}
+
+.body{
+    font-family: "Roboto Condensed", sans-serif;
+    color: #040404;
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: 400;
+
+}
+
+
+
+.header{
+    padding-top: 25px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    background: linear-gradient(180deg, #D8D4CA 0%, rgba(217, 217, 217, 0) 100%);
+
+}
+
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu-list{
+    display: flex;
+    gap: 0 40px;
+    padding-top: 25px;
+}
+
+.menu-left{
+    padding-left: 8px;
+}
+
+.menu-right{
+    padding-right: 15px;
+}
+
+.menu-link{
+    color: #363636;
+    font-size: 16px;
+
+}
+
+
+.promo{
+    background-image: url(../img/promo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.promo_inner{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    text-align: center;
+    padding-top: 110px;
+
+
+}
+
+
+.title{
+    font-family: 'Impact', sans-serif;
+    font-weight: 400;
+    font-size: 76px;
+    letter-spacing: 0.04em;
+    margin-bottom: 10px;
+}
+
+.subtitle{
+    font-family: 'Impact', sans-serif;
+    font-weight: 400;
+    font-size: 48px;
+    border-bottom: 1px solid #040404;
+    margin-bottom: 10px;
+    align-self: center;
+}
+
+.subtitle span{
+    display: block;
+    font-size: 34px;
+    color:gold;
+    padding: 10px 0;
+
+
+}
+
+.promo_text{
+    font-size: 16px;
+    color: #363636;
+    margin-bottom: 10px;
+}
+
+
+.promo_arrow{
+    margin-top: auto;
+    margin-bottom: 30px;
+    align-self: center;
+}
+
+
+.info{
+    margin-bottom: 100px;
+
+}
+
+.info_part{
+    padding-top:  100px;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+
+
+.info_part-table{
+    padding-top:  66px;
+
+}
+
+
+.info_part-first{
+    display: block;
+
+}
+
+.info_part-second .info_text{
+    max-width: 352px;
+}
+
+.info_part-table .info_text{
+    max-width: 377px;
+}
+
+.info_title{
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    font-weight: 300;
+    font-size: 32px;
+}
+
+.info_part-textbox{
+    display: flex;
+    justify-content: space-between;
+    gap: 0 20px;
+
+}
+
+.info_text{
+    flex-basis: 440px;
+    margin-bottom: 30px;
+}
+
+
+.info_part-img{
+    object-fit: cover;
+}
+
+.info_content{
+    flex-basis: 415px;
+}
+
+
+.info_table{
+     flex-basis: 450px;
+     border-bottom: 1px solid #040404;
+     position: relative;
+     top: 20px
+
+}
+
+
+.info_table::before{
+    content: '';
+    border-top: 1px solid #040404;
+    position: absolute;
+    width: 100%;
+    top: -20px;
+}
+
+.info_table tr{
+    padding-bottom: 20px;
+}
+
+
+.track{
+    padding-bottom: 90px;
+     background: 
+        linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), /* Белый слой */
+        url(../img/grand.jpg) center/cover no-repeat; /* Картинка */
+}
+
+
+
+.track_title{
+    padding-top: 50px;
+    padding-bottom: 30px;
+    font-size: 32px;
+    font-weight: 300;
+
+}
+
+.track_text{
+    max-width: 435px;
+
+}
+
+.track_img{
+    margin: 0 auto;
+    display: block;
+    margin-top: 250px;
+}
+
+video, iframe {
+     width: auto;       
+    height: 100%;       
+    aspect-ratio: 16 / 9;   
+}
+
+
+
+.footer {
+    background-color: #4a4a4a;
+    color: #e0e0e0;
+    padding: 30px 20px;
+    font-size: 15px;
+    border-top: 2px solid #666;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+    align-items: flex-start; 
+    gap: 30px;
+}
+
+/* Общий стиль для блоков */
+.footer-block {
+    flex: 0 1 auto; 
+    min-width: 250px;
+}
+
+/* Левый блок (контакты) */
+.footer-block-left {
+    text-align: left;
+}
+
+/* Правый блок (адрес) */
+.footer-block-right {
+    text-align: right;
+}
+
+/* Заголовки */
+.footer-title {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #ffb347;
+    display: inline-block;
+}
+
+
+.footer-contacts,
+.footer-address {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.footer-block-right .footer-address {
+    align-items: flex-end; 
+}
+
+
+.footer a {
+    color: #ffb347;
+    text-decoration: none;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.footer a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.footer-copyright {
+    font-size: 13px;
+    color: #aaa;
+    margin-top: 10px;
+    display: block;
+}
+
+
+.content {
+    margin-top: 0;
+    margin-bottom: 50px;
+}
+
+
+.form-container {
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    padding: 40px 30px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.form-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #4a90e2, #9b59b6, #e74c3c);
+    border-radius: 20px 20px 0 0;
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-weight: 600;
+    font-size: 28px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.form-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #4a90e2, #9b59b6);
+    border-radius: 3px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+
+.control-label {
+    font-weight: 600;
+    color: #ffc107;
+    font-size: 15px;
+    display: block;
+    margin-bottom: 8px;
+    width: 150px;
+    text-align: right;
+    padding-right: 15px;
+}
+
+.form-control, select.form-control {
+    border: 2px solid #e1e5e9;
+    border-radius: 12px;
+    padding: 12px 15px;
+    height: auto;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    box-shadow: none;
+    background-color: #fafbfc;
+    width: 300px;
+    box-sizing: border-box;
+}
+
+.form-control:focus, select.form-control:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.1);
+    background-color: #fff;
+    outline: none;
+}
+
+input.error, select.error {
+    border: 2px solid #ff4d4d !important;
+    background-color: #fff8f8;
+}
+
+label.error {
+    color: #ff4d4d;
+    font-weight: 500;
+    font-size: 13px;
+    margin-top: 8px;
+    margin-bottom: 0;
+    display: block;
+    text-align: center;
+    width: 300px;
+    margin-left: 165px;
+}
+
+
+.btn-primary {
+    background: linear-gradient(135deg, #4a90e2, #9b59b6);
+    border: none;
+    border-radius: 12px;
+    padding: 14px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    width: 300px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+    display: block;
+    margin: 0 auto;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(74, 144, 226, 0.4);
+    background: linear-gradient(135deg, #5a9eea, #aa66c0);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.red {
+    color: red;
+    font-weight: bold;
+    margin-left: 3px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+
+
+
+#race-info {
+    scroll-margin-top: 0px; 
+}
+
+
+
