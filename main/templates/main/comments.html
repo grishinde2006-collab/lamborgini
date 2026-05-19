@@ -1,4 +1,4 @@
-{% load static %}
+ {% load static %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -145,7 +145,7 @@
     <div class="comment-card">
       
       <div style="text-align: center;">
-        <a href="http://localhost:8000/" class="btn-home">← На главную</a>
+        <a href="{{ FULL_URL }}/" class="btn-home">← На главную</a>
       </div>
       
       <h2 class="comment-title">💬 Обсуждение</h2>
@@ -160,7 +160,7 @@
         <div id="form-error" class="form-error"></div>
       {% else %}
         <div class="alert alert-info" style="background: #d9edf7; border-color: #bce8f1; color: #31708f; padding: 12px; border-radius: 8px;">
-           <a href="http://localhost:8001/login/">Войдите</a> или <a href="http://localhost:8001/register-user/">зарегистрируйтесь</a>, чтобы оставить комментарий.
+           <a href="{{ AUTH_URL }}/login/">Войдите</a> или <a href="{{ AUTH_URL }}/register-user/">зарегистрируйтесь</a>, чтобы оставить комментарий.
         </div>
       {% endif %}
       
