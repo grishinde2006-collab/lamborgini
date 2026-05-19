@@ -11,14 +11,28 @@ from .models import Comment
 from django.contrib.admin.views.decorators import staff_member_required
 import json
 import os
+from django.conf import settings
 
 SERVICE_ROLE = os.environ.get('SERVICE_ROLE', 'full')
 
+# URL сервисов из настроек
+FULL_URL = settings.FULL_URL
+AUTH_URL = settings.AUTH_URL
+COMMENTS_URL = settings.COMMENTS_URL
+
 def index(request):
-    return render(request, 'main/index.html')
+    return render(request, 'main/index.html', {
+        'FULL_URL': FULL_URL,
+        'AUTH_URL': AUTH_URL,
+        'COMMENTS_URL': COMMENTS_URL,
+    })
 
 def lastyear(request):
-    return render(request, 'main/lastyear.html')
+    return render(request, 'main/lastyear.html', {
+        'FULL_URL': FULL_URL,
+        'AUTH_URL': AUTH_URL,
+        'COMMENTS_URL': COMMENTS_URL,
+    })
 
 def register_user(request):
     if request.method == 'POST':
@@ -64,13 +78,16 @@ def register_user(request):
         
         messages.success(request, f'✅ Пользователь {username} успешно зарегистрирован!')
         
-        # Если это auth сервис (порт 8001) — редирект на главный сайт
         if SERVICE_ROLE == 'auth':
-            return redirect('http://localhost:8000/')
+            return redirect(f'{FULL_URL}/')
         else:
             return redirect('login')
     
-    return render(request, 'main/register_user.html')
+    return render(request, 'main/register_user.html', {
+        'FULL_URL': FULL_URL,
+        'AUTH_URL': AUTH_URL,
+        'COMMENTS_URL': COMMENTS_URL,
+    })
 
 def login_user(request):
     if request.method == 'POST':
@@ -83,34 +100,38 @@ def login_user(request):
             login(request, user)
             messages.success(request, f'✅ Добро пожаловать, {user.username}!')
             
-            # Если это auth сервис (порт 8001) — редирект на главный сайт
             if SERVICE_ROLE == 'auth':
-                return redirect('http://localhost:8000/')
+                return redirect(f'{FULL_URL}/')
             else:
                 return redirect('index')
         else:
             messages.error(request, '❌ Неверный логин или пароль!')
             return redirect('login')
     
-    return render(request, 'main/login.html')
+    return render(request, 'main/login.html', {
+        'FULL_URL': FULL_URL,
+        'AUTH_URL': AUTH_URL,
+        'COMMENTS_URL': COMMENTS_URL,
+    })
 
 def logout_user(request):
     logout(request)
     messages.success(request, 'Вы вышли из системы.')
     
-    # Если это auth сервис (порт 8001) — редирект на главный сайт
     if SERVICE_ROLE == 'auth':
-        return redirect('http://localhost:8000/')
+        return redirect(f'{FULL_URL}/')
     else:
         return redirect('index')
 
 def comments_page(request):
-    """Страница с комментариями"""
-    return render(request, 'main/comments.html')
+    return render(request, 'main/comments.html', {
+        'FULL_URL': FULL_URL,
+        'AUTH_URL': AUTH_URL,
+        'COMMENTS_URL': COMMENTS_URL,
+    })
 
 @login_required
 def comment_list(request):
-    """Получение списка комментариев в формате JSON"""
     comments = Comment.objects.all()[:50]
     data = {
         'comments': [
@@ -129,7 +150,6 @@ def comment_list(request):
 @require_http_methods(['POST'])
 @login_required
 def comment_add(request):
-    """Добавление нового комментария"""
     try:
         data = json.loads(request.body)
         text = data.get('text', '').strip()
