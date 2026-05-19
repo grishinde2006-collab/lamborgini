@@ -101,6 +101,15 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Настройки для авторизации
+
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://lamborgini-full.onrender.com',
+    'https://lamborgini-auth.onrender.com',
+    'https://lamborgini-comments.onrender.com',
+]
+
+# Настройки для авторизации
 LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'https://lamborgini-full.onrender.com/'
+LOGOUT_REDIRECT_URL = 'https://lamborgini-full.onrender.com/'
