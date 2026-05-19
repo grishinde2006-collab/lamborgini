@@ -504,4 +504,315 @@ input[type=number] {
 }
 
 
+/* ===== АДАПТИВНАЯ ВЕРСТКА (ДОБАВИТЬ В КОНЕЦ ФАЙЛА) ===== */
 
+/* Планшеты (от 768px до 1024px) */
+@media (max-width: 1024px) {
+    .big-container {
+        max-width: 960px;
+        padding: 0 15px;
+    }
+    
+    .container {
+        max-width: 720px;
+    }
+    
+    .title {
+        font-size: 60px;
+    }
+    
+    .subtitle {
+        font-size: 38px;
+    }
+    
+    .subtitle span {
+        font-size: 28px;
+    }
+    
+    .info_part {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .info_part-second {
+        flex-direction: column-reverse;
+    }
+    
+    .info_part-img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .info_part-textbox {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .info_text {
+        flex-basis: auto;
+    }
+    
+    .info_content {
+        flex-basis: auto;
+        text-align: center;
+    }
+    
+    .info_table {
+        overflow-x: auto;
+        display: block;
+        width: 100%;
+    }
+    
+    .track_text {
+        max-width: 100%;
+    }
+    
+    .track_img {
+        margin-top: 100px;
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .footer-block-right .footer-address {
+        align-items: center;
+    }
+    
+    .footer-block {
+        text-align: center;
+    }
+    
+    .footer-title {
+        display: inline-block;
+    }
+    
+    /* Форма */
+    .form-group {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .control-label {
+        text-align: center;
+        width: auto;
+        margin-bottom: 8px;
+    }
+    
+    label.error {
+        margin-left: 0;
+        width: 300px;
+        text-align: center;
+    }
+}
+
+/* Мобильные телефоны (до 768px) */
+@media (max-width: 768px) {
+    .header {
+        padding-top: 15px;
+        background: linear-gradient(180deg, #D8D4CA 85%, rgba(217, 217, 217, 0) 100%);
+    }
+    
+    /* Адаптивное меню */
+    .nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .menu-list {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px 20px;
+        padding-top: 10px;
+    }
+    
+    .menu-left, .menu-right {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    .menu-link {
+        font-size: 12px;
+    }
+    
+    .logo-img {
+        max-width: 80px;
+        height: auto;
+    }
+    
+    .promo_inner {
+        padding-top: 130px;
+    }
+    
+    .title {
+        font-size: 36px;
+    }
+    
+    .subtitle {
+        font-size: 24px;
+    }
+    
+    .subtitle span {
+        font-size: 18px;
+    }
+    
+    .promo_text {
+        font-size: 12px;
+        padding: 0 10px;
+    }
+    
+    .promo_arrow img {
+        width: 40px;
+        height: auto;
+    }
+    
+    .info {
+        margin-bottom: 50px;
+    }
+    
+    .info_part {
+        padding-top: 50px;
+    }
+    
+    .info_title {
+        font-size: 24px;
+        text-align: center;
+    }
+    
+    .info_text {
+        font-size: 12px;
+        padding: 0 10px;
+        margin-bottom: 20px;
+    }
+    
+    .info_table {
+        font-size: 12px;
+    }
+    
+    .info_table td {
+        padding: 8px 5px;
+        display: block;
+        text-align: center;
+    }
+    
+    .track {
+        padding-bottom: 40px;
+    }
+    
+    .track_title {
+        font-size: 24px;
+        text-align: center;
+        padding-top: 30px;
+    }
+    
+    .track_text {
+        font-size: 12px;
+        padding: 0 15px;
+    }
+    
+    .track_img {
+        margin-top: 50px;
+    }
+    
+    video, iframe {
+        width: 100%;
+        height: auto;
+    }
+    
+    /* Форма */
+    .form-container {
+        padding: 25px 15px;
+        margin: 0 10px;
+    }
+    
+    .form-title {
+        font-size: 22px;
+    }
+    
+    .form-control, select.form-control {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .btn-primary {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .form-group {
+        width: 100%;
+    }
+    
+    .col-sm-6 {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .col-sm-offset-2 {
+        margin-left: 0;
+    }
+}
+
+/* Очень маленькие телефоны (до 480px) */
+@media (max-width: 480px) {
+    .title {
+        font-size: 28px;
+    }
+    
+    .subtitle {
+        font-size: 18px;
+    }
+    
+    .subtitle span {
+        font-size: 14px;
+    }
+    
+    .menu-link {
+        font-size: 10px;
+    }
+    
+    .menu-list {
+        gap: 8px 12px;
+    }
+    
+    .info_title {
+        font-size: 20px;
+    }
+    
+    .info_text {
+        font-size: 11px;
+    }
+    
+    .footer {
+        padding: 20px 15px;
+    }
+    
+    .footer-title {
+        font-size: 16px;
+    }
+    
+    .footer-contacts span,
+    .footer-address span {
+        font-size: 12px;
+        word-break: break-word;
+    }
+    
+    .form-title {
+        font-size: 20px;
+    }
+    
+    .control-label {
+        font-size: 14px;
+    }
+    
+    .btn-primary {
+        font-size: 14px;
+        padding: 12px 20px;
+    }
+}
