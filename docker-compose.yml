@@ -8,6 +8,9 @@ services:
       - "8000:8000"
     environment:
       - SERVICE_ROLE=full
+      - FULL_URL=http://83.217.221.87:8000
+      - AUTH_URL=http://83.217.221.87:8001
+      - COMMENTS_URL=http://83.217.221.87:8002
     container_name: full_service
     networks:
       - microservices_net
@@ -22,6 +25,9 @@ services:
       - "8001:8001"
     environment:
       - SERVICE_ROLE=auth
+      - FULL_URL=http://83.217.221.87:8000
+      - AUTH_URL=http://83.217.221.87:8001
+      - COMMENTS_URL=http://83.217.221.87:8002
     container_name: auth_service
     networks:
       - microservices_net
@@ -36,6 +42,9 @@ services:
       - "8002:8002"
     environment:
       - SERVICE_ROLE=comments
+      - FULL_URL=http://83.217.221.87:8000
+      - AUTH_URL=http://83.217.221.87:8001
+      - COMMENTS_URL=http://83.217.221.87:8002
     container_name: comments_service
     networks:
       - microservices_net
