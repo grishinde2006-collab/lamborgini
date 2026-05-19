@@ -26,7 +26,7 @@
                             {% endfor %}
                         {% endif %}
                         
-                        <form method="post" action="http://localhost:8001/login/">
+                        <form method="post" action="{{ AUTH_URL }}/login/">
                             {% csrf_token %}
                             <div class="form-group">
                                 <label>Логин</label>
@@ -42,10 +42,10 @@
                         </form>
                         <hr>
                         <p class="text-center">
-                            Нет аккаунта? <a href="http://localhost:8001/register-user/">Зарегистрироваться</a>
+                            Нет аккаунта? <a href="{{ AUTH_URL }}/register-user/">Зарегистрироваться</a>
                         </p>
                         <p class="text-center">
-                            <a href="http://localhost:8000/">← На главную</a>
+                            <a href="{{ FULL_URL }}/">← На главную</a>
                         </p>
                     </div>
                 </div>
