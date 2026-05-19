@@ -1,13 +1,5 @@
 import os
 from pathlib import Path
-import dj_database_url
-
-DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL'),
-        conn_max_age=600
-    )
-}
 
 # ========== НАСТРОЙКА МИКРОСЕРВИСОВ ==========
 SERVICE_ROLE = os.environ.get('SERVICE_ROLE', 'full')
@@ -24,6 +16,12 @@ SECRET_KEY = 'django-insecure-hkr($^9+^q(3d%ttmxbdr6p1@&boad9eeb*q+wr&)6_gk=ky77
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://lamborgini-full.onrender.com',
+    'https://lamborgini-auth.onrender.com',
+    'https://lamborgini-comments.onrender.com',
+]
 
 # ========== INSTALLED_APPS ==========
 BASE_APPS = [
@@ -76,12 +74,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
+# ========== БАЗА ДАННЫХ ==========
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+# =================================
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -107,15 +107,6 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# Настройки для авторизации
-
-
-CSRF_TRUSTED_ORIGINS = [
-    'https://lamborgini-full.onrender.com',
-    'https://lamborgini-auth.onrender.com',
-    'https://lamborgini-comments.onrender.com',
-]
 
 # Настройки для авторизации
 LOGIN_URL = '/login/'
