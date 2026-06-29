@@ -907,43 +907,44 @@ input[type=number] {
 /* ===== ЛИНИИ-РАЗДЕЛИТЕЛИ В ШАПКЕ ДЛЯ МОБИЛЬНЫХ ===== */
 
 @media (max-width: 850px) {
-    .menu-list {
-        position: relative;
-        padding-bottom: 12px !important;
+    .logo {
+        display: none !important;
     }
     
-    /* Горизонтальная линия-разделитель */
+    /* Компактное меню с разделителями */
+    .nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 0px;
+    }
+    
+    .menu-list {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0px 12px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        position: relative;
+    }
+    
+    /* Разделитель между строками меню */
     .menu-list::after {
         content: '';
         display: block;
         width: 100%;
-        max-width: 500px;
-        height: 2px;
-        background: linear-gradient(90deg, transparent, rgba(100, 100, 100, 0.4), rgba(80, 80, 80, 0.6), rgba(100, 100, 100, 0.4), transparent);
-        margin: 8px auto 0;
-        border-radius: 2px;
+        height: 1px;
+        background: rgba(100, 100, 100, 0.3);
+        margin: 2px auto;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
     }
     
-    /* Вторая линия-разделитель (сверху) */
-    .menu-list::before {
-        content: '';
-        display: block;
-        width: 70%;
-        max-width: 350px;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(100, 100, 100, 0.25), rgba(80, 80, 80, 0.35), rgba(100, 100, 100, 0.25), transparent);
-        margin: 0 auto 6px;
+    /* Каждый пункт меню — как отдельная строка с разделителем */
+    .menu-item {
+        position: relative;
+        padding: 2px 0;
     }
 }
 
-@media (max-width: 480px) {
-    .menu-list::after {
-        max-width: 350px;
-        height: 1.5px;
-    }
-    
-    .menu-list::before {
-        max-width: 250px;
-        height: 0.5px;
-    }
-}
