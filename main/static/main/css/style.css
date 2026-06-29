@@ -607,25 +607,32 @@ input[type=number] {
     }
 }
 
-/* Мобильные телефоны (до 768px) */
-@media (max-width: 768px) {
+/* Мобильные телефоны (до 850px) — шапка компактная, логотип скрыт */
+@media (max-width: 850px) {
     .header {
-        padding-top: 15px;
-        background: linear-gradient(180deg, #D8D4CA 85%, rgba(217, 217, 217, 0) 100%);
+        padding-top: 10px;
+        padding-bottom: 5px;
+        background: linear-gradient(180deg, #D8D4CA 90%, rgba(217, 217, 217, 0) 100%);
     }
     
-    /* Адаптивное меню */
+    /* Скрываем логотип на мобилках */
+    .logo {
+        display: none !important;
+    }
+    
+    /* Компактное меню */
     .nav {
         flex-direction: column;
         align-items: center;
-        gap: 8px;
+        gap: 2px;
     }
     
     .menu-list {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 8px 15px;
-        padding-top: 10px;
+        gap: 5px 12px;
+        padding-top: 5px;
+        padding-bottom: 5px;
     }
     
     .menu-left, .menu-right {
@@ -635,16 +642,11 @@ input[type=number] {
     
     .menu-link {
         font-size: 11px;
-    }
-    
-    /* Логотип на мобилках — уменьшен в 2 раза */
-    .logo-img {
-        max-width: 50px;
-        height: auto;
+        padding: 2px 0;
     }
     
     .promo_inner {
-        padding-top: 130px;
+        padding-top: 110px;
     }
     
     .title {
@@ -688,7 +690,7 @@ input[type=number] {
         margin-bottom: 20px;
     }
     
-    /* Календарь: заголовок и таблица как на десктопе, только компактнее */
+    /* Календарь */
     .info_part-table {
         overflow-x: auto;
     }
@@ -710,7 +712,6 @@ input[type=number] {
         width: 30%;
     }
     
-    /* Текст календаря слева, таблица справа — сохраняется структура */
     .info_part-table .info_content {
         text-align: left;
         margin-bottom: 20px;
@@ -744,7 +745,7 @@ input[type=number] {
         height: auto;
     }
     
-    /* Контакты и адрес — как на десктопе (не по центру, а по бокам) */
+    /* Футер */
     .footer-container {
         flex-direction: row;
         justify-content: space-between;
@@ -814,6 +815,22 @@ input[type=number] {
 
 /* Очень маленькие телефоны (до 480px) */
 @media (max-width: 480px) {
+    .header {
+        padding-top: 8px;
+        padding-bottom: 3px;
+    }
+    
+    .menu-list {
+        gap: 4px 8px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+    
+    .menu-link {
+        font-size: 9px;
+        padding: 2px 0;
+    }
+    
     .title {
         font-size: 26px;
     }
@@ -824,19 +841,6 @@ input[type=number] {
     
     .subtitle span {
         font-size: 13px;
-    }
-    
-    .menu-link {
-        font-size: 10px;
-    }
-    
-    .menu-list {
-        gap: 6px 10px;
-    }
-    
-    /* Логотип ещё меньше на очень маленьких экранах */
-    .logo-img {
-        max-width: 40px;
     }
     
     .info_title {
@@ -873,10 +877,4 @@ input[type=number] {
     .info_table td {
         padding: 6px 8px;
     }
-    /* Скрываем логотип на мобильных устройствах */
-@media (max-width: 768px) {
-    .desktop-only {
-        display: none;
-    }
-}
 }
