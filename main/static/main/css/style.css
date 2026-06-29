@@ -504,8 +504,6 @@ input[type=number] {
 }
 
 
-/* ===== АДАПТИВНАЯ ШАПКА ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ ===== */
-
 /* Мобильные устройства (до 850px) — компактная шапка с разделителем */
 @media (max-width: 850px) {
     .header {
@@ -530,24 +528,39 @@ input[type=number] {
     .menu-list {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 0px 12px;
+        gap: 2px 12px;
         padding-top: 4px;
-        padding-bottom: 4px;
+        padding-bottom: 8px;
         position: relative;
+        width: 100%;
     }
     
-    /* Разделитель между строками меню */
+    /* Горизонтальная линия-разделитель между строками */
     .menu-list::after {
         content: '';
         display: block;
-        width: 60%;
+        width: 90%;
+        max-width: 600px;
+        height: 1.5px;
+        background: linear-gradient(90deg, transparent, rgba(80, 80, 80, 0.4), rgba(80, 80, 80, 0.6), rgba(80, 80, 80, 0.4), transparent);
+        margin: 3px auto 0;
+        position: relative;
+        bottom: -4px;
+        order: 10;
+    }
+    
+    /* Дополнительная линия сверху для красоты */
+    .menu-list::before {
+        content: '';
+        display: block;
+        width: 70%;
+        max-width: 400px;
         height: 1px;
-        background: rgba(100, 100, 100, 0.3);
-        margin: 2px auto;
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
+        background: linear-gradient(90deg, transparent, rgba(80, 80, 80, 0.2), rgba(80, 80, 80, 0.3), rgba(80, 80, 80, 0.2), transparent);
+        margin: 0 auto 2px;
+        position: relative;
+        top: -2px;
+        order: -1;
     }
     
     /* Каждый пункт меню — как отдельная строка с разделителем */
@@ -559,7 +572,7 @@ input[type=number] {
     .menu-item:not(:last-child)::after {
         content: '|';
         color: rgba(100, 100, 100, 0.25);
-        margin-left: 6px;
+        margin-left: 8px;
         font-size: 10px;
     }
     
@@ -749,13 +762,25 @@ input[type=number] {
     }
     
     .menu-list {
-        gap: 0px 8px;
+        gap: 1px 8px;
         padding-top: 3px;
-        padding-bottom: 3px;
+        padding-bottom: 6px;
+    }
+    
+    .menu-list::after {
+        width: 95%;
+        height: 1px;
+        bottom: -2px;
+    }
+    
+    .menu-list::before {
+        width: 80%;
+        height: 0.5px;
+        top: -1px;
     }
     
     .menu-item:not(:last-child)::after {
-        margin-left: 4px;
+        margin-left: 5px;
         font-size: 8px;
     }
     
