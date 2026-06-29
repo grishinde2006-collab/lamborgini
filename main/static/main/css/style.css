@@ -904,3 +904,46 @@ input[type=number] {
         padding-top: 100px;
     }
 }
+/* ===== ЛИНИИ-РАЗДЕЛИТЕЛИ В ШАПКЕ ДЛЯ МОБИЛЬНЫХ ===== */
+
+@media (max-width: 850px) {
+    .menu-list {
+        position: relative;
+        padding-bottom: 12px !important;
+    }
+    
+    /* Горизонтальная линия-разделитель */
+    .menu-list::after {
+        content: '';
+        display: block;
+        width: 100%;
+        max-width: 500px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, rgba(100, 100, 100, 0.4), rgba(80, 80, 80, 0.6), rgba(100, 100, 100, 0.4), transparent);
+        margin: 8px auto 0;
+        border-radius: 2px;
+    }
+    
+    /* Вторая линия-разделитель (сверху) */
+    .menu-list::before {
+        content: '';
+        display: block;
+        width: 70%;
+        max-width: 350px;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(100, 100, 100, 0.25), rgba(80, 80, 80, 0.35), rgba(100, 100, 100, 0.25), transparent);
+        margin: 0 auto 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-list::after {
+        max-width: 350px;
+        height: 1.5px;
+    }
+    
+    .menu-list::before {
+        max-width: 250px;
+        height: 0.5px;
+    }
+}
