@@ -506,12 +506,13 @@ input[type=number] {
 
 /* ===== АДАПТИВНАЯ ШАПКА ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ ===== */
 
-/* Мобильные устройства (до 850px) — шапка компактная, логотип скрыт, фон прозрачный */
+/* Мобильные устройства (до 850px) — компактная шапка с разделителем */
 @media (max-width: 850px) {
     .header {
-        padding-top: 6px;
+        padding-top: 8px;
         padding-bottom: 4px;
-        background: linear-gradient(180deg, rgba(216, 212, 202, 0.7) 0%, rgba(217, 217, 217, 0) 100%) !important;
+        background: linear-gradient(180deg, rgba(200, 195, 185, 0.9) 0%, rgba(217, 217, 217, 0.4) 70%, rgba(217, 217, 217, 0) 100%) !important;
+        border-bottom: none;
     }
     
     /* Скрываем логотип */
@@ -519,7 +520,7 @@ input[type=number] {
         display: none !important;
     }
     
-    /* Максимально компактное меню */
+    /* Компактное меню с разделителями */
     .nav {
         flex-direction: column;
         align-items: center;
@@ -529,9 +530,37 @@ input[type=number] {
     .menu-list {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 2px 10px;
-        padding-top: 3px;
-        padding-bottom: 3px;
+        gap: 0px 12px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        position: relative;
+    }
+    
+    /* Разделитель между строками меню */
+    .menu-list::after {
+        content: '';
+        display: block;
+        width: 60%;
+        height: 1px;
+        background: rgba(100, 100, 100, 0.3);
+        margin: 2px auto;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    /* Каждый пункт меню — как отдельная строка с разделителем */
+    .menu-item {
+        position: relative;
+        padding: 2px 0;
+    }
+    
+    .menu-item:not(:last-child)::after {
+        content: '|';
+        color: rgba(100, 100, 100, 0.25);
+        margin-left: 6px;
+        font-size: 10px;
     }
     
     .menu-left, .menu-right {
@@ -541,8 +570,9 @@ input[type=number] {
     
     .menu-link {
         font-size: 11px;
-        padding: 1px 0;
+        padding: 2px 0;
         line-height: 1.2;
+        color: #4a4a4a;
     }
     
     .promo_inner {
@@ -590,7 +620,6 @@ input[type=number] {
         margin-bottom: 20px;
     }
     
-    /* Календарь */
     .info_part-table {
         overflow-x: auto;
     }
@@ -645,7 +674,6 @@ input[type=number] {
         height: auto;
     }
     
-    /* Футер */
     .footer-container {
         flex-direction: row;
         justify-content: space-between;
@@ -681,7 +709,6 @@ input[type=number] {
         gap: 8px;
     }
     
-    /* Форма */
     .form-container {
         padding: 20px 15px;
         margin: 0 10px;
@@ -716,15 +743,20 @@ input[type=number] {
 /* Очень маленькие телефоны (до 480px) */
 @media (max-width: 480px) {
     .header {
-        padding-top: 4px;
+        padding-top: 5px;
         padding-bottom: 3px;
-        background: linear-gradient(180deg, rgba(216, 212, 202, 0.6) 0%, rgba(217, 217, 217, 0) 100%) !important;
+        background: linear-gradient(180deg, rgba(200, 195, 185, 0.85) 0%, rgba(217, 217, 217, 0.3) 70%, rgba(217, 217, 217, 0) 100%) !important;
     }
     
     .menu-list {
-        gap: 1px 6px;
-        padding-top: 2px;
-        padding-bottom: 2px;
+        gap: 0px 8px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+    
+    .menu-item:not(:last-child)::after {
+        margin-left: 4px;
+        font-size: 8px;
     }
     
     .menu-link {
