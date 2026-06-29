@@ -947,4 +947,18 @@ input[type=number] {
         padding: 2px 0;
     }
 }
+/* Убираем лишний отступ сверху на мобильных */
+@media (max-width: 850px) {
+    .promo_inner {
+        padding-top: 80px !important;
+        min-height: 90vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .promo_inner {
+        padding-top: 60px !important;
+        min-height: 85vh;
+    }
+}
 
