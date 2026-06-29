@@ -873,4 +873,10 @@ input[type=number] {
     .info_table td {
         padding: 6px 8px;
     }
+    /* Скрываем логотип на мобильных устройствах */
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none;
+    }
+}
 }
