@@ -1102,13 +1102,25 @@ input[type=number] {
         margin-left: 0 !important;
     }
 }
-/* ===== МОБИЛЬНАЯ ВЕРСИЯ (до 768px) — УБИРАЕМ ОТСТУПЫ У ТЕКСТОВ ===== */
-@media (max-width: 850px) {
-    /* Блок "Команды супер трофео" — убираем отступы */
-    .info_part-second .info_text {
+/* ===== ВСЕ ТЕКСТЫ ПО ЛЕВОМУ КРАЮ ДЛЯ УСТРОЙСТВ МЕНЕЕ 860px ===== */
+@media (max-width: 860px) {
+    /* Главный текст "Мировой финал Lamborghini..." */
+    .info_part-first .info_text {
+        text-align: left !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    
+    .info_part-first .info_part-textbox {
         padding-left: 0 !important;
         padding-right: 0 !important;
-        text-align: left;
+    }
+    
+    /* Текст "Команды супер трофео" */
+    .info_part-second .info_text {
+        text-align: left !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
     }
     
     .info_part-second .info_content {
@@ -1116,15 +1128,30 @@ input[type=number] {
         padding-right: 0 !important;
     }
     
-    /* Блок "календарь сезона" — убираем отступы */
+    /* Текст календаря */
     .info_part-table .info_text {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-        text-align: left;
+        text-align: left !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
     }
     
     .info_part-table .info_content {
         padding-left: 0 !important;
         padding-right: 0 !important;
+    }
+    
+    /* Текст трека */
+    .track_text {
+        text-align: left !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    
+    /* Все жирные тексты (b) тоже выравниваем */
+    .info_part-first b.info_text {
+        text-align: left !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        display: block;
     }
 }
