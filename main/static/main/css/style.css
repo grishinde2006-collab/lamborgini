@@ -1059,3 +1059,45 @@ input[type=number] {
         text-align: center !important;
     }
 }
+/* ===== ПЛАНШЕТНАЯ ВЕРСИЯ (до 1024px) ===== */
+
+@media (max-width: 1024px) {
+    /* Заголовок "КОМАНДЫ СУПЕР ТРОФЕО" — по левому краю */
+    .info_part-second .info_title {
+        text-align: left !important;
+    }
+    
+    /* Текст "Команды супер трофео" — по левому краю */
+    .info_part-second .info_text {
+        text-align: left !important;
+        padding: 0 10px;
+    }
+    
+    /* Контент блока команд — по левому краю */
+    .info_part-second .info_content {
+        text-align: left !important;
+        padding: 0 10px;
+    }
+    
+    /* Заголовок "календарь сезона Super Trofeo Europe 2026 года" — по левому краю */
+    .info_part-table .info_title {
+        text-align: left !important;
+    }
+    
+    /* Текст календаря — по левому краю */
+    .info_part-table .info_text {
+        text-align: left !important;
+        padding: 0 10px;
+    }
+    
+    /* Контент календаря — по левому краю */
+    .info_part-table .info_content {
+        text-align: left !important;
+        padding: 0 10px;
+    }
+    
+    /* Сама таблица — по левому краю */
+    .info_table {
+        margin-left: 0 !important;
+    }
+}
