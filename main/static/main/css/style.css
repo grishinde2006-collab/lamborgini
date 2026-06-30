@@ -942,23 +942,34 @@ input[type=number] {
     }
 }
 
-/* ===== УБИРАЕМ ОТСТУПЫ У БЛОКА "КОМАНДЫ СУПЕР ТРОФЕО" ДЛЯ ПЛАНШЕТОВ ===== */
 @media (min-width: 769px) and (max-width: 1024px) {
-    /* Убираем верхний отступ у блока */
-    .info_part-second {
-        padding-top: 30px !important;
-    }
-    
-    /* Убираем отступы у текста */
+    /* Убираем левые отступы у текста "Команды супер трофео" */
     .info_part-second .info_text {
         padding-left: 0 !important;
-        padding-right: 0 !important;
+        margin-left: 0 !important;
         text-align: left !important;
     }
     
-    /* Убираем отступы у контента */
     .info_part-second .info_content {
         padding-left: 0 !important;
-        padding-right: 0 !important;
+        margin-left: 0 !important;
+    }
+    
+    /* Убираем левые отступы у текста календаря */
+    .info_part-table .info_text {
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+        text-align: left !important;
+    }
+    
+    .info_part-table .info_content {
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+    }
+    
+    /* Убираем общие отступы у всех info_text на планшетах */
+    .info_text {
+        padding-left: 0 !important;
+        margin-left: 0 !important;
     }
 }
