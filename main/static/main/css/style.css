@@ -1102,3 +1102,29 @@ input[type=number] {
         margin-left: 0 !important;
     }
 }
+/* ===== МОБИЛЬНАЯ ВЕРСИЯ (до 768px) — УБИРАЕМ ОТСТУПЫ У ТЕКСТОВ ===== */
+@media (max-width: 850px) {
+    /* Блок "Команды супер трофео" — убираем отступы */
+    .info_part-second .info_text {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        text-align: left;
+    }
+    
+    .info_part-second .info_content {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    
+    /* Блок "календарь сезона" — убираем отступы */
+    .info_part-table .info_text {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        text-align: left;
+    }
+    
+    .info_part-table .info_content {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
