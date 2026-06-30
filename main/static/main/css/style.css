@@ -505,15 +505,16 @@ input[type=number] {
 
 
 /* ===== АДАПТИВНАЯ ВЕРСТКА ===== */
-/* Добавь этот код в конец style.css */
+/* ============================================
+   АДАПТИВНАЯ ВЕРСТКА
+   ============================================ */
 
-/* Планшеты и маленькие ноутбуки (до 1024px) */
+/* ---------- ПЛАНШЕТЫ (до 1024px) ---------- */
 @media (max-width: 1024px) {
     .big-container {
         max-width: 960px;
         padding: 0 15px;
     }
-    
     .container {
         max-width: 720px;
     }
@@ -521,11 +522,9 @@ input[type=number] {
     .title {
         font-size: 60px;
     }
-    
     .subtitle {
         font-size: 38px;
     }
-    
     .subtitle span {
         font-size: 28px;
     }
@@ -540,25 +539,20 @@ input[type=number] {
         align-items: center;
         gap: 30px;
     }
-    
     .info_part-second {
         flex-direction: column-reverse;
     }
-    
     .info_part-img {
         max-width: 100%;
         height: auto;
     }
-    
     .info_part-textbox {
         flex-direction: column;
         gap: 20px;
     }
-    
     .info_text {
         flex-basis: auto;
     }
-    
     .info_content {
         flex-basis: auto;
         text-align: center;
@@ -567,7 +561,6 @@ input[type=number] {
     .track_text {
         max-width: 100%;
     }
-    
     .track_img {
         margin-top: 100px;
         max-width: 100%;
@@ -579,11 +572,9 @@ input[type=number] {
         justify-content: space-between;
         text-align: left;
     }
-    
     .footer-block {
         text-align: left;
     }
-    
     .footer-block-right .footer-address {
         align-items: flex-end;
     }
@@ -592,13 +583,11 @@ input[type=number] {
         flex-direction: column;
         align-items: center;
     }
-    
     .control-label {
         text-align: center;
         width: auto;
         margin-bottom: 8px;
     }
-    
     label.error {
         margin-left: 0;
         width: 300px;
@@ -606,15 +595,13 @@ input[type=number] {
     }
 }
 
-/* Мобильные телефоны (до 850px) */
+
 @media (max-width: 850px) {
     .header {
         padding-top: 12px;
         padding-bottom: 6px;
         background: linear-gradient(180deg, rgba(216, 212, 202, 0.95) 0%, rgba(217, 217, 217, 0.5) 70%, rgba(217, 217, 217, 0) 100%) !important;
     }
-    
-    /* Скрываем логотип на телефонах */
     .logo {
         display: none !important;
     }
@@ -624,20 +611,18 @@ input[type=number] {
         align-items: center;
         gap: 2px;
     }
-    
     .menu-list {
         flex-wrap: wrap;
         justify-content: center;
         gap: 4px 12px;
         padding-top: 8px;
         padding-bottom: 8px;
+        position: relative;
     }
-    
     .menu-left, .menu-right {
         padding-left: 0;
         padding-right: 0;
     }
-    
     .menu-link {
         font-size: 12px;
         padding: 2px 0;
@@ -647,25 +632,20 @@ input[type=number] {
         padding-top: 110px;
         min-height: 90vh;
     }
-    
     .title {
         font-size: 34px;
     }
-    
     .subtitle {
         font-size: 22px;
     }
-    
     .subtitle span {
         font-size: 16px;
         padding: 6px 0;
     }
-    
     .promo_text {
         font-size: 13px;
         padding: 0 15px;
     }
-    
     .promo_arrow img {
         width: 35px;
         height: auto;
@@ -674,67 +654,58 @@ input[type=number] {
     .info {
         margin-bottom: 50px;
     }
-    
     .info_part {
         padding-top: 50px;
     }
-    
     .info_title {
         font-size: 22px;
         text-align: center;
     }
-    
     .info_text {
         font-size: 13px;
         padding: 0 10px;
         margin-bottom: 20px;
+        text-align: left;
     }
     
     .info_part-table {
         overflow-x: auto;
     }
-    
     .info_table {
         width: 100%;
         min-width: 500px;
         font-size: 12px;
     }
-    
     .info_table td {
         padding: 8px 10px;
         border-bottom: 1px solid #ddd;
     }
-    
     .info_table tr td:first-child {
         font-weight: bold;
         width: 30%;
     }
-    
     .info_part-table .info_content {
         text-align: left;
         margin-bottom: 20px;
     }
-    
     .info_part-table .info_title {
-        text-align: left;
+        text-align: center !important;
     }
     
     .track {
         padding-bottom: 40px;
     }
-    
     .track_title {
         font-size: 22px;
         text-align: center;
         padding-top: 30px;
     }
-    
     .track_text {
         font-size: 13px;
         padding: 0 15px;
         max-width: 100%;
+        text-align: left;
     }
-    
     .track_img {
         margin-top: 40px;
         max-width: 100%;
@@ -752,30 +723,24 @@ input[type=number] {
         flex-wrap: wrap;
         gap: 20px;
     }
-    
     .footer-block {
         flex: 1;
         min-width: 200px;
         text-align: left;
     }
-    
     .footer-block:first-child {
         text-align: left;
     }
-    
     .footer-block:last-child {
         text-align: right;
     }
-    
     .footer-block-right .footer-address {
         align-items: flex-end;
     }
-    
     .footer-title {
         display: inline-block;
         margin-bottom: 12px;
     }
-    
     .footer-contacts,
     .footer-address {
         gap: 8px;
@@ -785,59 +750,54 @@ input[type=number] {
         padding: 20px 15px;
         margin: 0 10px;
     }
-    
     .form-title {
         font-size: 20px;
     }
-    
     .form-control, select.form-control {
         width: 100%;
         max-width: 280px;
     }
-    
     .btn-primary {
         width: 100%;
         max-width: 280px;
         font-size: 14px;
         padding: 12px 20px;
     }
-    
     .col-sm-6 {
         width: 100%;
         text-align: center;
     }
-    
     .col-sm-offset-2 {
         margin-left: 0;
     }
 }
 
-/* Очень маленькие телефоны (до 480px) */
+
 @media (max-width: 480px) {
     .header {
         padding-top: 8px;
         padding-bottom: 4px;
         background: linear-gradient(180deg, rgba(216, 212, 202, 0.9) 0%, rgba(217, 217, 217, 0.4) 70%, rgba(217, 217, 217, 0) 100%) !important;
     }
-    
     .menu-list {
         gap: 2px 8px;
         padding-top: 4px;
         padding-bottom: 4px;
     }
-    
     .menu-link {
         font-size: 10px;
     }
     
+    .promo_inner {
+        padding-top: 80px !important;
+        min-height: 85vh;
+    }
     .title {
         font-size: 28px;
     }
-    
     .subtitle {
         font-size: 18px;
     }
-    
     .subtitle span {
         font-size: 14px;
     }
@@ -845,23 +805,24 @@ input[type=number] {
     .info_title {
         font-size: 18px;
     }
-    
     .info_text {
         font-size: 12px;
+        padding: 0 15px;
+    }
+    .info_part-table .info_title {
+        font-size: 18px;
+        text-align: center !important;
     }
     
     .footer {
         padding: 20px 15px;
     }
-    
     .footer-block {
         min-width: 150px;
     }
-    
     .footer-title {
         font-size: 14px;
     }
-    
     .footer-contacts span,
     .footer-address span {
         font-size: 12px;
@@ -872,294 +833,76 @@ input[type=number] {
         min-width: 400px;
         font-size: 10px;
     }
-    
     .info_table td {
         padding: 6px 8px;
     }
 }
 
-/* Супер маленькие телефоны (до 380px) */
+
 @media (max-width: 380px) {
     .menu-list {
         gap: 1px 5px;
     }
-    
     .menu-link {
         font-size: 9px;
     }
     
+    .promo_inner {
+        padding-top: 70px !important;
+    }
     .title {
         font-size: 24px;
     }
-    
     .subtitle {
         font-size: 16px;
     }
-    
     .subtitle span {
         font-size: 12px;
     }
-    
-    .promo_inner {
-        padding-top: 100px;
-    }
-}
-/* ===== ЛИНИИ-РАЗДЕЛИТЕЛИ В ШАПКЕ ДЛЯ МОБИЛЬНЫХ ===== */
-
-@media (max-width: 850px) {
-    .logo {
-        display: none !important;
-    }
-    
-    /* Компактное меню с разделителями */
-    .nav {
-        flex-direction: column;
-        align-items: center;
-        gap: 0px;
-    }
-    
-    .menu-list {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0px 12px;
-        padding-top: 4px;
-        padding-bottom: 4px;
-        position: relative;
-    }
-    
-    /* Разделитель между строками меню */
-    .menu-list::after {
-        content: '';
-        display: block;
-        width: 100%;
-        height: 1px;
-        background: rgba(100, 100, 100, 0.3);
-        margin: 2px auto;
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    /* Каждый пункт меню — как отдельная строка с разделителем */
-    .menu-item {
-        position: relative;
-        padding: 2px 0;
-    }
-}
-/* Убираем лишний отступ сверху на мобильных */
-@media (max-width: 850px) {
-    .promo_inner {
-        padding-top: 80px !important;
-        min-height: 90vh;
-    }
 }
 
-@media (max-width: 480px) {
-    .promo_inner {
-        padding-top: 60px !important;
-        min-height: 85vh;
-    }
-}
-/* ===== ВЕРТИКАЛЬНЫЕ ПАЛКИ В ШАПКЕ ДЛЯ МОБИЛЬНЫХ ===== */
 
-@media (max-width: 850px) {
-    .menu-item {
-        position: relative;
-        padding: 2px 0;
-    }
-    
-    /* Вертикальные палки между пунктами меню */
-    .menu-item:not(:last-child)::after {
-        content: '|';
-        color: rgba(100, 100, 100, 0.3);
-        margin-left: 8px;
-        font-size: 12px;
-        font-weight: 300;
-    }
-}
-
-@media (max-width: 480px) {
-    .menu-item:not(:last-child)::after {
-        margin-left: 5px;
-        font-size: 10px;
-    }
-}
-
-/* ===== АДАПТИВНЫЕ ПРАВКИ ДЛЯ ТЕКСТА И ЗАГОЛОВКОВ ===== */
-
-/* Планшеты и мобильные (до 1024px) */
-@media (max-width: 1024px) {
-    /* Выравнивание текста "Команды супер трофео" по левому краю */
-    .info_part-second .info_text {
-        max-width: 100%;
-        text-align: left;
-        padding: 0 10px;
-    }
-    
-    /* Выравнивание заголовка "календарь сезона" по центру */
-    .info_part-table .info_title {
-        text-align: center !important;
-    }
-    
-    /* Текст календаря по левому краю */
-    .info_part-table .info_text {
-        text-align: left;
-        padding: 0 10px;
-    }
-}
-
-/* Мобильные телефоны (до 850px) */
-@media (max-width: 850px) {
-    /* Текст "Команды супер трофео" и описание — по левому краю */
-    .info_part-second .info_text {
-        text-align: left;
-        padding: 0 10px;
-    }
-    
-    .info_part-second .info_content {
-        text-align: left;
-        padding: 0 10px;
-    }
-    
-    /* Заголовок "календарь сезона" — по центру */
-    .info_part-table .info_title {
-        text-align: center !important;
-    }
-    
-    /* Текст календаря — по левому краю */
-    .info_part-table .info_text {
-        text-align: left;
-        padding: 0 10px;
-    }
-    
-    /* Контент календаря — по левому краю */
-    .info_part-table .info_content {
-        text-align: left;
-        padding: 0 10px;
-    }
-}
-
-/* Маленькие телефоны (до 480px) */
-@media (max-width: 480px) {
-    .info_part-second .info_text {
-        font-size: 12px;
-        text-align: left;
-        padding: 0 15px;
-    }
-    
-    .info_part-table .info_text {
-        font-size: 12px;
-        text-align: left;
-        padding: 0 15px;
-    }
-    
-    .info_part-table .info_title {
-        font-size: 18px;
-        text-align: center !important;
-    }
-}
-/* ===== ТОЛЬКО ДЛЯ ПЛАНШЕТОВ (769px – 1024px) ===== */
 @media (min-width: 769px) and (max-width: 1024px) {
-    /* Заголовок "КОМАНДЫ СУПЕР ТРОФЕО" — по левому краю + отступ 2px */
-    .info_part-second .info_title {
-        text-align: left !important;
-        padding-left: 2px !important;
-    }
-    
-    /* Текст "Команды супер трофео" — по левому краю */
-    .info_part-second .info_text {
-        text-align: left !important;
-        padding-left: 2px !important;
-    }
-    
-    /* Контент блока команд — по левому краю */
-    .info_part-second .info_content {
-        text-align: left !important;
-        padding-left: 2px !important;
-    }
-    
-    /* Заголовок "календарь сезона Super Trofeo Europe 2026 года" — по левому краю + отступ 2px */
-    .info_part-table .info_title {
-        text-align: left !important;
-        padding-left: 2px !important;
-    }
-    
-    /* Текст календаря — по левому краю */
-    .info_part-table .info_text {
-        text-align: left !important;
-        padding-left: 2px !important;
-    }
-    
-    /* Контент календаря — по левому краю */
+    .info_part-second .info_title,
+    .info_part-second .info_text,
+    .info_part-second .info_content,
+    .info_part-table .info_title,
+    .info_part-table .info_text,
     .info_part-table .info_content {
         text-align: left !important;
         padding-left: 2px !important;
     }
-    
-    /* Сама таблица — по левому краю */
     .info_table {
         margin-left: 0 !important;
     }
 }
-/* ===== ВСЕ ТЕКСТЫ ПО ЛЕВОМУ КРАЮ ДЛЯ УСТРОЙСТВ МЕНЕЕ 860px ===== */
+
+
 @media (max-width: 900px) {
-    /* Главный текст "Мировой финал Lamborghini..." */
-    .info_part-first .info_text {
-        text-align: left !important;
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-    }
-    
-    .info_part-first .info_part-textbox {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    }
-    
-    /* Текст "Команды супер трофео" */
-    .info_part-second .info_text {
-        text-align: left !important;
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-    }
-    
-    .info_part-second .info_content {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    }
-    
-    /* Текст календаря */
-    .info_part-table .info_text {
-        text-align: left !important;
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-    }
-    
-    .info_part-table .info_content {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    }
-    
-    /* Текст трека */
+    .info_part-first .info_text,
+    .info_part-second .info_text,
+    .info_part-table .info_text,
     .track_text {
         text-align: left !important;
         padding-left: 15px !important;
         padding-right: 15px !important;
     }
-    
-    /* Все жирные тексты (b) тоже выравниваем */
+    .info_part-first .info_part-textbox,
+    .info_part-second .info_content,
+    .info_part-table .info_content {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
     .info_part-first b.info_text {
+        display: block !important;
         text-align: left !important;
         padding-left: 15px !important;
         padding-right: 15px !important;
-        display: block;
     }
 }
 
 
-/* ===== ТОЛЬКО ДЛЯ АДАПТИВА (менее 860px) ===== */
-@media (max-width: 860px) {
-    /* Все тексты с одинаковыми отступами */
+@media (max-width: 850px) {
     .info_text,
     .info_part-textbox .info_text,
     .info_part-second .info_text,
@@ -1177,19 +920,48 @@ input[type=number] {
         margin-right: 0 !important;
         box-sizing: border-box !important;
     }
-    
-    /* Убираем лишние отступы у контейнеров */
     .info_content,
     .info_part-textbox {
         padding-left: 0 !important;
         padding-right: 0 !important;
     }
-    
-    /* Жирный текст */
     b.info_text {
         display: block !important;
         padding-left: 15px !important;
         padding-right: 15px !important;
         text-align: left !important;
+    }
+}
+
+/* ---------- ЛИНИИ И ПАЛКИ В ШАПКЕ (ТОЛЬКО МОБИЛКИ) ---------- */
+@media (max-width: 850px) {
+    .menu-list::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+        background: rgba(100, 100, 100, 0.3);
+        margin: 2px auto;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .menu-item {
+        position: relative;
+        padding: 2px 0;
+    }
+    .menu-item:not(:last-child)::after {
+        content: '|';
+        color: rgba(100, 100, 100, 0.3);
+        margin-left: 8px;
+        font-size: 12px;
+        font-weight: 300;
+    }
+}
+@media (max-width: 480px) {
+    .menu-item:not(:last-child)::after {
+        margin-left: 5px;
+        font-size: 10px;
     }
 }
