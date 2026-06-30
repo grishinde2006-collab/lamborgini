@@ -1103,7 +1103,7 @@ input[type=number] {
     }
 }
 /* ===== ВСЕ ТЕКСТЫ ПО ЛЕВОМУ КРАЮ ДЛЯ УСТРОЙСТВ МЕНЕЕ 860px ===== */
-@media (max-width: 860px) {
+@media (max-width: 900px) {
     /* Главный текст "Мировой финал Lamborghini..." */
     .info_part-first .info_text {
         text-align: left !important;
