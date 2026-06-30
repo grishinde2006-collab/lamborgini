@@ -986,3 +986,76 @@ input[type=number] {
     }
 }
 
+/* ===== АДАПТИВНЫЕ ПРАВКИ ДЛЯ ТЕКСТА И ЗАГОЛОВКОВ ===== */
+
+/* Планшеты и мобильные (до 1024px) */
+@media (max-width: 1024px) {
+    /* Выравнивание текста "Команды супер трофео" по левому краю */
+    .info_part-second .info_text {
+        max-width: 100%;
+        text-align: left;
+        padding: 0 10px;
+    }
+    
+    /* Выравнивание заголовка "календарь сезона" по центру */
+    .info_part-table .info_title {
+        text-align: center !important;
+    }
+    
+    /* Текст календаря по левому краю */
+    .info_part-table .info_text {
+        text-align: left;
+        padding: 0 10px;
+    }
+}
+
+/* Мобильные телефоны (до 850px) */
+@media (max-width: 850px) {
+    /* Текст "Команды супер трофео" и описание — по левому краю */
+    .info_part-second .info_text {
+        text-align: left;
+        padding: 0 10px;
+    }
+    
+    .info_part-second .info_content {
+        text-align: left;
+        padding: 0 10px;
+    }
+    
+    /* Заголовок "календарь сезона" — по центру */
+    .info_part-table .info_title {
+        text-align: center !important;
+    }
+    
+    /* Текст календаря — по левому краю */
+    .info_part-table .info_text {
+        text-align: left;
+        padding: 0 10px;
+    }
+    
+    /* Контент календаря — по левому краю */
+    .info_part-table .info_content {
+        text-align: left;
+        padding: 0 10px;
+    }
+}
+
+/* Маленькие телефоны (до 480px) */
+@media (max-width: 480px) {
+    .info_part-second .info_text {
+        font-size: 12px;
+        text-align: left;
+        padding: 0 15px;
+    }
+    
+    .info_part-table .info_text {
+        font-size: 12px;
+        text-align: left;
+        padding: 0 15px;
+    }
+    
+    .info_part-table .info_title {
+        font-size: 18px;
+        text-align: center !important;
+    }
+}
