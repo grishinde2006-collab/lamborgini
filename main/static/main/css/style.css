@@ -1059,41 +1059,42 @@ input[type=number] {
         text-align: center !important;
     }
 }
-/* ===== ПЛАНШЕТНАЯ ВЕРСИЯ (до 1024px) ===== */
-
-@media (max-width: 1024px) {
-    /* Заголовок "КОМАНДЫ СУПЕР ТРОФЕО" — по левому краю */
+/* ===== ТОЛЬКО ДЛЯ ПЛАНШЕТОВ (769px – 1024px) ===== */
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Заголовок "КОМАНДЫ СУПЕР ТРОФЕО" — по левому краю + отступ 2px */
     .info_part-second .info_title {
         text-align: left !important;
+        padding-left: 2px !important;
     }
     
     /* Текст "Команды супер трофео" — по левому краю */
     .info_part-second .info_text {
         text-align: left !important;
-        padding: 0 10px;
+        padding-left: 2px !important;
     }
     
     /* Контент блока команд — по левому краю */
     .info_part-second .info_content {
         text-align: left !important;
-        padding: 0 10px;
+        padding-left: 2px !important;
     }
     
-    /* Заголовок "календарь сезона Super Trofeo Europe 2026 года" — по левому краю */
+    /* Заголовок "календарь сезона Super Trofeo Europe 2026 года" — по левому краю + отступ 2px */
     .info_part-table .info_title {
         text-align: left !important;
+        padding-left: 2px !important;
     }
     
     /* Текст календаря — по левому краю */
     .info_part-table .info_text {
         text-align: left !important;
-        padding: 0 10px;
+        padding-left: 2px !important;
     }
     
     /* Контент календаря — по левому краю */
     .info_part-table .info_content {
         text-align: left !important;
-        padding: 0 10px;
+        padding-left: 2px !important;
     }
     
     /* Сама таблица — по левому краю */
