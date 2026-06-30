@@ -1155,3 +1155,41 @@ input[type=number] {
         display: block;
     }
 }
+
+
+/* ===== ТОЛЬКО ДЛЯ АДАПТИВА (менее 860px) ===== */
+@media (max-width: 860px) {
+    /* Все тексты с одинаковыми отступами */
+    .info_text,
+    .info_part-textbox .info_text,
+    .info_part-second .info_text,
+    .info_part-table .info_text,
+    .track_text,
+    .info_part-first b.info_text,
+    .info_part-second .info_content p,
+    .info_part-table .info_content p {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        text-align: left !important;
+        max-width: 100% !important;
+        flex-basis: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Убираем лишние отступы у контейнеров */
+    .info_content,
+    .info_part-textbox {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    
+    /* Жирный текст */
+    b.info_text {
+        display: block !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        text-align: left !important;
+    }
+}
