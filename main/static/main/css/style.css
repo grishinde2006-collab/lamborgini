@@ -50,7 +50,7 @@ a{
 
 .header{
     padding-top: 25px;
-    position: absolute;
+    position: relative;
     left: 0;
     right: 0;
     background: linear-gradient(180deg, #D8D4CA 0%, rgba(217, 217, 217, 0) 100%);
