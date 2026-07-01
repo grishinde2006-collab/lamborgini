@@ -1128,3 +1128,8 @@ input[type=number] {
         text-align: left !important;
     }
 }
+
+
+.header {
+    position: static !important;
+}
